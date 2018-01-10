@@ -4,13 +4,13 @@ class Main extends Controller {
 
     function Index () {
         
-        if (isset($_SESSION['login'])) {
+        if (!isset($_SESSION['login'])) {
 
-            header('Location: /dashboard');
+            header('Location: /login');
 
         } else {
 
-            header('Location: /login');
+            header('Location: /dashboard');
             
         }
         

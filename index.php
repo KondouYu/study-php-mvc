@@ -7,6 +7,8 @@ $app = new App();
 $app->require('/core/classes/Model.php');
 $app->require('/core/classes/Controller.php');
 
+$app->config();
+
 $app->start();
 
 ?>

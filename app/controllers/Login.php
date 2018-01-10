@@ -4,15 +4,28 @@ class Login extends Controller {
 
     function Index () {
 
-        $this->view('template/header');
-        $this->view('login');
-        $this->view('template/footer');
+        if (!isset($_SESSION['login'])) {
+
+            $this->model('user');
+
+            $this->User->getWelcome();
+
+            $this->view('template/header');
+            $this->view('login');
+            $this->view('template/footer');
+
+        } else {
+
+            header('Location: /dashboard');
+
+        }
 
     }
 
     function Logout () {
 
-        // TODO: Logout implementation`
+        $_SESSION = [];
+        session_unset();
 
     }
 

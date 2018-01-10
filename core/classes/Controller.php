@@ -65,8 +65,10 @@ abstract class Controller {
 
     function model ($path) {
 
-        $path = strtolower($path);
+        $path = ucfirst(strtolower($path));
         require(ROOT . '/app/models/' . $path . '.php');
+
+        $this->$path = new $path;
 
     }
 
