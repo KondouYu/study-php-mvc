@@ -33,9 +33,12 @@ class App {
 
         try {
 
-            $this->db = new PDO('mysql:host=' . $this->config['database']['hostname'] . ';' . $this->config['database']['dbname'],
+            $this->db = new PDO('mysql:host=' . $this->config['database']['hostname'] . ';dbname=' . $this->config['database']['dbname'],
                                 $this->config['database']['username'], 
                                 $this->config['database']['password']);
+            
+            // TODO: Remove for production
+            $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         } catch (PDOException $e) {
 
@@ -67,8 +70,6 @@ class App {
             $this->require('/app/controllers/Main.php');
             $main = new Main();
         }
-
-        session_destroy();
 
     }
     
