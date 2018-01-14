@@ -3,7 +3,7 @@
         <div class="col-md-6 offset-md-3 mt-150">
             <form class="jumbotron" action="/login" method="POST">
                 <div class="row">
-                    <input type="text" class="form-control" placeholder="Login" name="username" />
+                    <input type="email" class="form-control" placeholder="Login" name="username" />
                 </div>
                 <div class="row">
                     <input type="password" class="form-control mt-25" placeholder="Hasło" name="password" />

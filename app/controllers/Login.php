@@ -10,8 +10,6 @@ class Login extends Controller {
 
             $this->view('template/header');
 
-            $this->view('login');
-
             if (isset($_POST['submit'])) {
 
                 if ($login = $this->Account->checkCredentials($_POST['username'], $_POST['password'])) {
@@ -21,11 +19,13 @@ class Login extends Controller {
 
                 } else {
 
-                    echo '<div class="container"><div class="row"><span class="col-md-6 offset-md-3 alert alert-danger">Błędne dane logowania.</span></div></div>';
+                    echo '<div class="systemAlert alert-danger text-center">Błąd logowania! Podano zły login/hasło lub Twoje konto jest nieaktywne.</div>';
                 
                 }
 
             }
+
+            $this->view('login');
 
             $this->view('template/footer');
 

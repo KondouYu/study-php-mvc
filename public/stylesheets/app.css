@@ -33,3 +33,13 @@
 .jumbotron {
     border-radius: 0px;
 }
+
+.systemAlert {
+    padding: 30px;
+    font-weight: 900;
+}
+
+.dashBtn {
+    height: 20vh;
+    line-height: 17vh;
+}
