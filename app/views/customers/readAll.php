@@ -9,10 +9,10 @@
         <div class="col-md-12 jumbotron">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="/customers" class="btn btn-block btn-secondary btn-lg">Klienci</a>
+                    <a href="/dashboard" class="btn btn-block btn-secondary btn-lg">Panel główny</a>
                 </div>
-                <div class="col-md-3 pull-right">
-                    <a href="/cases" class="btn btn-block btn-secondary btn-lg">Sprawy</a>
+                <div class="col-md-3 offset-md-6">
+                    <a href="/customers/create" class="btn btn-block btn-secondary btn-lg">Dodaj klienta</a>
                 </div>
             </div>
             <div class="row mt-5">

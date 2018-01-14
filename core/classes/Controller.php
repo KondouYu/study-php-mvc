@@ -77,7 +77,6 @@ abstract class Controller {
         if (is_array($vars))
             extract($vars);
 
-        $path = strtolower($path);
         require(ROOT . '/app/views/' . $path . '.php');
 
     }

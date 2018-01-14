@@ -9,7 +9,11 @@ class Customers extends Controller {
 
         } else {
         
-            
+            $this->view('template/header');
+
+            $this->view('customers/readAll');
+
+            $this->view('template/footer');
 
         }
     }
