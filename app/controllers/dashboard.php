@@ -12,8 +12,8 @@ class Dashboard extends Controller {
 
             $this->view('template/header');
 
-            $this->model('account');
-            $privilege = $this->Account->checkPrivileges($_SESSION['login']);
+            $this->model('accounts/Accounts');
+            $privilege = $this->Accounts->checkPrivileges($_SESSION['login']);
 
             switch($privilege) {
 

@@ -43,3 +43,7 @@
     height: 20vh;
     line-height: 17vh;
 }
+
+.dataTables_filter {
+    float: right !important;
+}

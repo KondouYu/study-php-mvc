@@ -61,13 +61,13 @@ class App {
 
         $route = explode('/', URI);
 
-        $route[1] = ucfirst($route[1]);
+        $route[1] = strtolower($route[1]);
 
         if (file_exists(ROOT . '/app/controllers/' . $route[1] . '.php')) {
             $this->require('/app/controllers/' . $route[1] . '.php');
             $controller = new $route[1]();
         } else {
-            $this->require('/app/controllers/Main.php');
+            $this->require('/app/controllers/main.php');
             $main = new Main();
         }
 

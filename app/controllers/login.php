@@ -6,13 +6,13 @@ class Login extends Controller {
 
         if (!isset($_SESSION['login'])) {
 
-            $this->model('account');
+            $this->model('accounts/Accounts');
 
             $this->view('template/header');
 
             if (isset($_POST['submit'])) {
 
-                if ($login = $this->Account->checkCredentials($_POST['username'], $_POST['password'])) {
+                if ($login = $this->Accounts->checkCredentials($_POST['username'], $_POST['password'])) {
 
                     $_SESSION['login'] = $login;
                     header('Location: /dashboard');

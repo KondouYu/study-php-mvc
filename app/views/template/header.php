@@ -8,6 +8,7 @@
     <title>Projekt - Aplikacje internetowe</title>
     <link rel="stylesheet" href="/public/stylesheets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/public/stylesheets/app.css">
+    <link rel="stylesheet" href="/public/vendor/DataTables/datatables.min.css.css">
 </head>
 
 <body>

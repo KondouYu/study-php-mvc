@@ -8,10 +8,14 @@ class Customers extends Controller {
             header('Location: /login');
 
         } else {
+
+            $this->model('actions/ActionsSubtype');
+
+            $this->ActionsSubtype->delete(1);
         
             $this->view('template/header');
 
-            $this->view('customers/readAll');
+            $this->view('customers/readall');
 
             $this->view('template/footer');
 
