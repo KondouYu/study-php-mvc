@@ -1,6 +1,6 @@
 <?php
 
-class Customers extends Model {
+class Customer extends Model {
 
     function create ($symbol = '', $imie = '', $nazwisko = '', $pesel = '', $email = '', $nrUmowy = '') {
 

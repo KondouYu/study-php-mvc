@@ -78,10 +78,10 @@ abstract class Controller {
 
     }
 
-    function view ($path, $vars = []) {
+    function view ($path, $data = []) {
 
-        if (is_array($vars))
-            extract($vars);
+        if (is_array($data))
+            extract($data);
 
         require(ROOT . '/app/views/' . $path . '.php');
 

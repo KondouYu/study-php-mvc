@@ -1,6 +1,6 @@
 $(document).ready(function () {
 
-    $('.table').DataTable({
+    $('.dT').DataTable({
         language: {
             "processing":     "Przetwarzanie...",
             "search":         "Szukaj:",
@@ -13,10 +13,10 @@ $(document).ready(function () {
             "zeroRecords":    "Nie znaleziono pasujących pozycji",
             "emptyTable":     "Brak danych",
             "paginate": {
-                "first":      "Pierwsza",
-                "previous":   "Poprzednia",
-                "next":       "Następna",
-                "last":       "Ostatnia"
+                "first":      "◄◄",
+                "previous":   "◄",
+                "next":       "►",
+                "last":       "►►"
             },
             "aria": {
                 "sortAscending": ": aktywuj, by posortować kolumnę rosnąco",

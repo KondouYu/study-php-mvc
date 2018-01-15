@@ -26,16 +26,38 @@ class App {
 
     }
 
+    function autoload () {
+
+        spl_autoload_register(function ($class) {
+
+            $class = strtolower($class);
+            if (file_exists(ROOT . '/core/classes/' . $class . '.php')) {
+
+                require_once ROOT . '/core/classes/' . $class . '.php';
+
+            } else if (file_exists(ROOT . '/core/helpers/' . $class . '.php')) {
+
+                require_once ROOT . '/core/helpers/' . $class . '.php';
+
+            }
+
+        });
+
+    }
+
     function config () {
 
         $this->require('/core/config/session.php');
-        $this->require('/core/config/database.php');
+        $this->require('/core/config/database.php');      
 
         try {
 
             $this->db = new PDO('mysql:host=' . $this->config['database']['hostname'] . ';dbname=' . $this->config['database']['dbname'],
                                 $this->config['database']['username'], 
                                 $this->config['database']['password']);
+
+            $this->db->query('SET NAMES utf8');
+            $this->db->query('SET CHARACTER_SET utf8_unicode_ci');
             
             // TODO: Remove for production
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

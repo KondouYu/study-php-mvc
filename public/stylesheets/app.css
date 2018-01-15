@@ -37,6 +37,7 @@
 .systemAlert {
     padding: 30px;
     font-weight: 900;
+    border-radius: 0px;
 }
 
 .dashBtn {
