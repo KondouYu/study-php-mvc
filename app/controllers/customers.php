@@ -40,7 +40,7 @@ class Customers extends Controller {
         } else {
         
             $this->model('Customer');
-            $this->model('cases/Cases');
+            $this->model('cases/M_Case');
 
             $this->view('template/header');
 
@@ -56,9 +56,9 @@ class Customers extends Controller {
 
             if (isset($_POST['addCustomerCaseButton'])) {
                 
-                $sprawa = $this->Cases->read($_POST['sprawa']);
+                $sprawa = $this->M_Case->read($_POST['sprawa']);
 
-                if ($this->Cases->update($sprawa['symbol'], $sprawa['nazwa'], $sprawa['dziedzina'], $sprawa['nazwaInstytucji'], $sprawa['adresInstytucji'], $sprawa['uwagi'], $id, $sprawa['id'])) {
+                if ($this->M_Case->update($sprawa['symbol'], $sprawa['nazwa'], $sprawa['dziedzina'], $sprawa['nazwaInstytucji'], $sprawa['adresInstytucji'], $sprawa['uwagi'], $id, $sprawa['id'])) {
                     Notifier::success('Klient poprawnie połączony ze sprawą.');
                 } else {
                     Notifier::danger('Błąd!');
@@ -67,8 +67,8 @@ class Customers extends Controller {
             }
 
             $data['customerData'] = $this->Customer->read($id);
-            $data['caseData'] = $this->Cases->readCustomer($id);
-            $data['caseList'] = $this->Cases->readAll();
+            $data['caseData'] = $this->M_Case->readCustomer($id);
+            $data['caseList'] = $this->M_Case->readAll();
 
             $this->view('customers/customer', $data);
             $this->view('customers/editcustomer', $data);

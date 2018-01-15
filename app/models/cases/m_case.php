@@ -1,6 +1,6 @@
 <?php
 
-class Cases extends Model {
+class M_Case extends Model {
 
     function create ($symbol = '', $nazwa = '', $dziedzina = '', $nazwaInstytucji = '', $adresInstytucji = '', $uwagi = '', $klientID = '') {
 
@@ -20,7 +20,7 @@ class Cases extends Model {
 
     function read ($id) {
 
-        $stmt = $this->db->prepare("SELECT s.*, sd.nazwa as dziedzinaNazwa FROM sprawy s LEFT JOIN sprawyDziedzina sd ON s.dziedzina = sd.id WHERE s.id = ?");
+        $stmt = $this->db->prepare("SELECT s.*, sd.nazwa as dziedzinaNazwa, CONCAT(k.imie, \" \", k.nazwisko) as klient FROM sprawy s LEFT JOIN sprawyDziedzina sd ON s.dziedzina = sd.id LEFT JOIN klienci k ON s.klientID = k.id WHERE s.id = ?");
         
         $stmt->bindParam(1, $id);
         
@@ -44,7 +44,7 @@ class Cases extends Model {
 
     function readAll () {
 
-        $stmt = $this->db->prepare("SELECT s.*, sd.nazwa as dziedzinaNazwa FROM sprawy s LEFT JOIN sprawyDziedzina sd ON s.dziedzina = sd.id");
+        $stmt = $this->db->prepare("SELECT s.*, sd.nazwa as dziedzinaNazwa, CONCAT(k.imie, \" \", k.nazwisko) as klient FROM sprawy s LEFT JOIN sprawyDziedzina sd ON s.dziedzina = sd.id LEFT JOIN klienci k ON s.klientID = k.id");
         
         $stmt->execute();
 
