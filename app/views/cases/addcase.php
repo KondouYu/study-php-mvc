@@ -13,11 +13,11 @@
         <div class="modal-body">
             <div class="form-group">
                 <label for="symbol">Symbol</label>
-                <input type="text" class="form-control" id="symbol" name="symbol" pattern="([A-ZĄĆĘŁŃÓŚŹŻ]{1}[ a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ/-]{1,}){1,}" title="Wprowadź poprawne nazwisko korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]."  required/>
+                <input type="text" class="form-control" id="symbol" name="symbol" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawny symbol korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]."  required/>
             </div>
             <div class="form-group">
                 <label for="nazwa">Nazwa</label>
-                <input type="text" class="form-control" id="nazwa" name="nazwa" pattern="([A-ZĄĆĘŁŃÓŚŹŻ]{1}[ a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ/-]{1,}){1,}" title="Wprowadź poprawne imię korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ]." required />
+                <input type="text" class="form-control" id="nazwa" name="nazwa" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawną nazwę sprawy korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." required />
             </div>
             <div class="form-group">
                 <label for="dziedzina">Dziedzina</label>
@@ -33,11 +33,11 @@
             </div>
             <div class="form-group">
                 <label for="nazwaInstytucji">Nazwa instytucji</label>
-                <input type="text" class="form-control" id="nazwaInstytucji" name="nazwaInstytucji" pattern="([A-ZĄĆĘŁŃÓŚŹŻ]{1}[ a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ/-]{1,}){1,}" title="Pesel ma 11 znaków [0-9]." required />
+                <input type="text" class="form-control" id="nazwaInstytucji" name="nazwaInstytucji" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawną nazwę instytucji korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." required />
             </div>
             <div class="form-group">
                 <label for="adresInstytucji">Adres instytucji</label>
-                <input type="text" class="form-control" id="adresInstytucji" name="adresInstytucji" pattern="([A-ZĄĆĘŁŃÓŚŹŻ]{1}[ a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ/-]{1,}){1,}" />
+                <input type="text" class="form-control" id="adresInstytucji" name="adresInstytucji" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawny adres instytucji korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." />
             </div>
             <div class="form-group">
                 <label for="uwagi">Uwagi</label>

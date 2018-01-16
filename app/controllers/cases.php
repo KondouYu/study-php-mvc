@@ -45,21 +45,23 @@ class Cases extends Controller {
         
             $this->model('cases/M_Case');
             $this->model('cases/CasesDziedzina');
+            $this->model('actions/Action');
 
             $this->view('template/header');
 
             if (isset($_POST['editCaseButton'])) {
                 
-                if ($this->Customer->update($_POST['symbol'], $_POST['imie'], $_POST['nazwisko'], $_POST['pesel'], $_POST['email'], $_POST['nrUmowy'], $id)) {
-                    Notifier::success('Klient poprawnie edytowany.');
+                if ($this->M_Case->update($_POST['symbol'], $_POST['nazwa'], $_POST['dziedzina'], $_POST['nazwaInstytucji'], $_POST['adresInstytucji'], $_POST['uwagi'], $id)) {
+                    Notifier::success('Sprawa poprawnie edytowana.');
                 } else {
-                    Notifier::danger('Błąd edycji klienta!');
+                    Notifier::danger('Błąd edycji sprawy!');
                 }
 
             }
 
             $data['caseData'] = $this->M_Case->read($id);
             $data['dziedzinaList'] = $this->CasesDziedzina->readAll();
+            $data['actionData'] = $this->Action->readCase($id);
 
             $this->view('cases/case', $data);
             $this->view('cases/editcase', $data);
