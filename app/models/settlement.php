@@ -1,6 +1,6 @@
 <?php
 
-class Settlements extends Model {
+class Settlement extends Model {
 
     function create ($sprawaID, $kwota, $opis = '') {
 
@@ -14,21 +14,9 @@ class Settlements extends Model {
 
     }
 
-    function read ($id) {
-
-        $stmt = $this->db->prepare("SELECT * FROM rozliczenia WHERE id = ?");
-        
-        $stmt->bindParam(1, $id);
-        
-        $stmt->execute();
-
-        return $stmt->fetch();
-
-    }
-
     function readAll () {
 
-        $stmt = $this->db->prepare("SELECT * FROM rozliczenia");
+        $stmt = $this->db->prepare("SELECT r.*, s.nazwa AS sprawa FROM rozliczenia r LEFT JOIN sprawy s ON r.sprawaID = s.id");
         
         $stmt->execute();
 
@@ -36,9 +24,9 @@ class Settlements extends Model {
 
     }
 
-    function update ($kwota, $opis, $id) {
+    function update ($sprawaID, $kwota, $opis, $id) {
 
-        $stmt = $this->db->prepare("UPDATE rozliczenia SET kwota=?, opis=? WHERE id = ?");
+        $stmt = $this->db->prepare("UPDATE rozliczenia SET sprawaID=?, kwota=?, opis=? WHERE id = ?");
 
         $stmt->bindParam(1, $kwota);
         $stmt->bindParam(2, $opis);
