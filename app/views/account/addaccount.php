@@ -1,4 +1,4 @@
-<!-- Dodaj czynność -->
+<!-- Dodaj konto -->
 <div class="modal fade" id="dodajKonto">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">

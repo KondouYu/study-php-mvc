@@ -1,4 +1,4 @@
-<!-- Dodaj klienta -->
+<!-- Dodaj sprawę -->
 <div class="modal fade" id="dodajSprawe">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">

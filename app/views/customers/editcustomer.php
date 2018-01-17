@@ -13,7 +13,7 @@
         <div class="modal-body">
             <div class="form-group">
                 <label for="symbol">Symbol</label>
-                <input type="text" class="form-control" id="symbol" name="symbol" value="<?= $customerData['symbol'] ?>" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawne nazwisko korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]."  required/>
+                <input type="text" class="form-control" id="symbol" name="symbol" value="<?= $customerData['symbol'] ?>" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawny symbol [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]."  required/>
             </div>
             <div class="form-group">
                 <label for="imie">Imię</label>

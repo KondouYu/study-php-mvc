@@ -1,4 +1,4 @@
-<!-- Dodaj czynność -->
+<!-- Dodaj rozliczenie -->
 <div class="modal fade" id="dodajRozliczenie">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -25,11 +25,11 @@
             </div>
             <div class="form-group">
             <label for="symbol">Kwota</label>
-                <input type="text" class="form-control" id="kwota" name="kwota" pattern="[0-9]{1,}" title="Wprowadź poprawną nazwę instytucji korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." required />
+                <input type="text" class="form-control" id="kwota" name="kwota" pattern="[0-9]{1,}" title="Wprowadź poprawny symbol [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." required />
             </div>
             <div class="form-group">
                 <label for="nazwa">Opis</label>
-                <input type="text" class="form-control" id="opis" name="opis" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawną nazwę instytucji korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." required />
+                <input type="text" class="form-control" id="opis" name="opis" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawny opis [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." required />
             </div>
         </div>
 

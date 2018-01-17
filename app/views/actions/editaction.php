@@ -1,4 +1,4 @@
-<!-- Dodaj czynność -->
+<!-- Edytuj czynność -->
 <div class="modal fade" id="edytujCzynnosc">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
             <label for="symbol">Symbol</label>
-                <input type="text" class="form-control" id="symbol" name="symbol" value="<?= $actionData['symbol'] ?>" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawną nazwę instytucji korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." required />
+                <input type="text" class="form-control" id="symbol" name="symbol" value="<?= $actionData['symbol'] ?>" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawny symbol [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." required />
             </div>
             <div class="form-group">
                 <label for="nazwa">Nazwa</label>
@@ -43,7 +43,7 @@
             </div>
             <div class="form-group">
                 <label for="miejsce">Miejsce</label>
-                <input type="text" class="form-control" id="miejsce" name="miejsce" value="<?= $actionData['miejsce'] ?>" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawny adres instytucji korzystając ze znaków [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." />
+                <input type="text" class="form-control" id="miejsce" name="miejsce" value="<?= $actionData['miejsce'] ?>" pattern="[ 0-9a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ///._/-]{1,}" title="Wprowadź poprawne miejsce [a-ząćęłńóśźżA-ZĄĆĘŁŃÓŚŹŻ][0-9][- _ .][space]." />
             </div>
             <div class="form-group">
                 <label for="typCzynnosci">Typ czynności</label>
