@@ -35,7 +35,7 @@
                         foreach ($actionData as $row) {
                         ?>
                             <tr onclick="window.location.replace('/actions/read/<?= $row['id'] ?>');">
-                                <td><?= $row['koszt'] ?></td>
+                                <td><?= $row['koszt'] ?> PLN</td>
                                 <td><span class="badge badge-danger"><?= $row['symbol'] ?></span></td>
                                 <td><?= $row['nazwa'] ?></td>
                                 <td><?= $row['miejsce'] ?></td>

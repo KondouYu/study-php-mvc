@@ -9,13 +9,13 @@
         <div class="col-md-12 jumbotron">
             <div class="row">
                 <div class="col-md-3">
-                    <a href="/customers" class="btn btn-block btn-secondary btn-lg dashBtn">Klienci</a>
+                    <a href="/customers" class="btn btn-block btn-info btn-lg dashBtn">Klienci</a>
                 </div>
                 <div class="col-md-3">
-                    <a href="/cases" class="btn btn-block btn-secondary btn-lg dashBtn">Sprawy</a>
+                    <a href="/cases" class="btn btn-block btn-warning btn-lg dashBtn">Sprawy</a>
                 </div>
                 <div class="col-md-3">
-                    <a href="/actions" class="btn btn-block btn-secondary btn-lg dashBtn">Czynności</a>
+                    <a href="/actions" class="btn btn-block btn-danger btn-lg dashBtn">Czynności</a>
                 </div>
                 <div class="col-md-3">
                     <a href="/settlements" class="btn btn-block btn-secondary btn-lg dashBtn">Rozliczenia</a>

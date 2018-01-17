@@ -49,7 +49,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <h4>Klient</h4>
-                        <p><?= $caseData['klient'] ?></p>
+                        <h5><a href="/customers/read/<?= $caseData['klientID'] ?>" class="badge badge-info"><?= $caseData['klient'] ?></a></h5>
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -62,44 +62,78 @@
             </div>
 
             <div class="col-md-12 mt-50">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <h3>Czynności w sprawie:</h3>
-                        </div>
-                        <div class="col-md-3 offset-md-6">
-                        </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h3>Czynności w sprawie:</h3>
                     </div>
-                    <table class="table table-striped table-hover mt-50" style="background-color: white;">
+                    <div class="col-md-6 text-right">
+                        <?php
+                        if ($balance >= 0) {
+                        ?>
+                        <span class="btn btn-success">Bilans: <?= $balance ?> PLN</span>
+                        <?php
+                        } else {
+                        ?>
+                        <span class="btn btn-danger">Bilans: <?= $balance ?> PLN</span>
+                        <?php
+                        }
+                        ?>
+                    </div>
+                    <div class="col-md-3 offset-md-6">
+                    </div>
+                </div>
+                <table class="table table-striped table-hover mt-50" style="background-color: white;">
+                    <thead>
+                        <tr>
+                            <th>Koszt</th>
+                            <th>Symbol</th>
+                            <th>Nazwa</th>
+                            <th>Miejsce</th>
+                            <th>Typ czynności</th>
+                            <th>Data rozpoczęcia</th>
+                            <th>Data zakończenia</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        foreach ($actionData as $row) {
+                        ?>
+                        <tr onclick="window.location.replace('/actions/read/<?= $row['id'] ?>');">
+                            <td style="color: red;">-<?= $row['koszt'] ?> PLN</td>
+                            <td><span class="badge badge-danger"><?= $row['symbol'] ?></span></td>
+                            <td><?= $row['nazwa'] ?></td>
+                            <td><?= $row['miejsce'] ?></td>
+                            <td><?= $row['typCzynnosciNazwa'] ?></td>
+                            <td><?= date_format(date_create($row['dataRozpoczecia']), 'd.m.Y') ?></td>
+                            <td><?= date_format(date_create($row['dataZakonczenia']), 'd.m.Y') ?></td>
+                        </tr>
+                        <?php
+                        }
+                        ?>
+                    </tbody>
+                </table>
+
+                <table class="table table-hover table-striped" style="background-color: white;">
                         <thead>
                             <tr>
-                                <th>Koszt</th>
-                                <th>Symbol</th>
-                                <th>Nazwa</th>
-                                <th>Miejsce</th>
-                                <th>Typ czynności</th>
-                                <th>Data rozpoczęcia</th>
-                                <th>Data zakończenia</th>
+                                <th>KWOTA</th>
+                                <th>OPIS</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                            foreach ($actionData as $row) {
-                            ?>
-                            <tr onclick="window.location.replace('/actions/read/<?= $row['id'] ?>');">
-                                <td><?= $row['koszt'] ?></td>
-                                <td><span class="badge badge-danger"><?= $row['symbol'] ?></span></td>
-                                <td><?= $row['nazwa'] ?></td>
-                                <td><?= $row['miejsce'] ?></td>
-                                <td><?= $row['typCzynnosciNazwa'] ?></td>
-                                <td><?= date_format(date_create($row['dataRozpoczecia']), 'd.m.Y') ?></td>
-                                <td><?= date_format(date_create($row['dataZakonczenia']), 'd.m.Y') ?></td>
+                        <?php
+                        foreach ($settlementData as $row) {
+                        ?>
+                            <tr>
+                                <td style="color: green;"><?= $row['kwota'] ?> PLN</td>
+                                <td><?= $row['opis'] ?></td>
                             </tr>
-                            <?php
-                            }
-                            ?>
+                        <?php
+                        }
+                        ?>
                         </tbody>
                     </table>
-                </div>
+            </div>
 
         </div>
     </div>

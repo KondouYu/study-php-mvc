@@ -67,7 +67,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <h4>Sprawa</h4>
-                        <p><?= $actionData['sprawa'] ?></p>
+                        <h5><a href="/cases/read/<?= $actionData['sprawaID'] ?>" class="badge badge-warning"><?= $actionData['sprawa'] ?></a></h5>
                     </div>
                 </div>
                 <div class="col-md-6">

@@ -46,6 +46,7 @@ class Cases extends Controller {
             $this->model('cases/M_Case');
             $this->model('cases/CasesDziedzina');
             $this->model('actions/Action');
+            $this->model('Settlement');
 
             $this->view('template/header');
 
@@ -62,6 +63,8 @@ class Cases extends Controller {
             $data['caseData'] = $this->M_Case->read($id);
             $data['dziedzinaList'] = $this->CasesDziedzina->readAll();
             $data['actionData'] = $this->Action->readCase($id);
+            $data['balance'] = $this->Settlement->sumCase($id) - $this->Action->sumCase($id);
+            $data['settlementData'] = $this->Settlement->readCase($id);
 
             $this->view('cases/case', $data);
             $this->view('cases/editcase', $data);

@@ -55,6 +55,18 @@ class Action extends Model {
 
     }
 
+    function sumCase ($id) {
+
+        $stmt = $this->db->prepare("SELECT SUM(koszt) FROM czynnosci WHERE sprawaID = ?");
+
+        $stmt->bindParam(1, $id);
+
+        $stmt->execute();
+
+        return $stmt->fetch()[0];
+
+    }
+
     function update ($koszt, $sprawaID, $symbol, $nazwa, $miejsce, $typCzynnosci, $podtypCzynnosci, $dataRozpoczecia, $dataZakonczenia, $opis, $id) {
 
         $stmt = $this->db->prepare("UPDATE czynnosci SET koszt=?, sprawaID=?, symbol=?, nazwa=?, miejsce=?, typCzynnosci=?, podtypCzynnosci=?, dataRozpoczecia=?, dataZakonczenia=?, opis=? WHERE id = ?");
