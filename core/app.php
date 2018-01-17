@@ -5,14 +5,6 @@
  * Author: Dawid Yerginyan
  */
 
-/*
-define("DS", DIRECTORY_SEPARATOR);
-define("ROOT", getcwd() . DS);
-define("APP_PATH", ROOT . 'application' . DS);
-define("FRAMEWORK_PATH", ROOT . "framework" . DS);
-define("PUBLIC_PATH", ROOT . "public" . DS);
-*/
-
 class App {
 
     private $config = [];
