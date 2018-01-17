@@ -7,7 +7,7 @@ class Account extends Controller {
         $this->model('accounts/Accounts');
         $this->model('accounts/AccountsType');
 
-        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 1) {
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) > 1) {
 
             header('Location: /login');
 
@@ -45,7 +45,7 @@ class Account extends Controller {
 
         $this->model('accounts/Accounts');
 
-        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 1) {
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) > 1) {
 
             header('Location: /login');
 
@@ -63,7 +63,7 @@ class Account extends Controller {
 
         $this->model('accounts/Accounts');
 
-        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 1) {
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) > 1) {
 
             header('Location: /login');
 

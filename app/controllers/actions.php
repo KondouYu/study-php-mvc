@@ -6,7 +6,7 @@ class Actions extends Controller {
 
         $this->model('accounts/Accounts');
 
-        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 2) {
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) > 2) {
 
             header('Location: /login');
 
@@ -46,7 +46,7 @@ class Actions extends Controller {
 
         $this->model('accounts/Accounts');
 
-        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 2) {
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) > 2) {
 
             header('Location: /login');
 
@@ -87,7 +87,7 @@ class Actions extends Controller {
 
         $this->model('accounts/Accounts');
 
-        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 2) {
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) > 2) {
 
             header('Location: /login');
 
@@ -107,7 +107,7 @@ class Actions extends Controller {
 
         $this->model('accounts/Accounts');
 
-        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 2) {
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) > 2) {
 
             header('Location: /login');
 
