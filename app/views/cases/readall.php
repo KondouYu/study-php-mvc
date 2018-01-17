@@ -12,6 +12,7 @@
                     <a href="/dashboard" class="btn btn-block btn-secondary btn-lg">Panel główny</a>
                 </div>
                 <div class="col-md-3 offset-md-6">
+                    <a href="/cases/print" class="btn btn-block btn-secondary btn-lg">Drukuj</a>
                     <a href="#" data-toggle="modal" data-target="#dodajSprawe" class="btn btn-block btn-secondary btn-lg">Dodaj sprawę</a>
                 </div>
             </div>
@@ -26,6 +27,7 @@
                                 <th>NAZWA INSTYTUCJI</th>
                                 <th>ADRES INSTYTUCJI</th>
                                 <th>KLIENT</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +41,7 @@
                                 <td><?= $row['nazwaInstytucji'] ?></td>
                                 <td><?= $row['adresInstytucji'] ?></td>
                                 <td><?= $row['klient'] ?></td>
+                                <td><a href="/cases/delete/<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Czy na pewno chcesz usunąć sprawę <?= $row['nazwa'] ?>?');"><i class="fa fa-trash-o"></i></a></td>
                             </tr>
                         <?php
                         }

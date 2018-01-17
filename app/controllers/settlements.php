@@ -3,7 +3,10 @@
 class Settlements extends Controller {
 
     function Index () {
-        if (!isset($_SESSION['login'])) {
+
+        $this->model('accounts/Accounts');
+
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 2) {
 
             header('Location: /login');
 
@@ -35,40 +38,79 @@ class Settlements extends Controller {
         }
     }
 
-    function read ($id = '') {
+    function delete ($id) {
 
-        if (!isset($_SESSION['login'])) {
+        $this->model('accounts/Accounts');
+
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 2) {
 
             header('Location: /login');
 
         } else {
-        
-            $this->model('cases/M_Case');
-            $this->model('actions/Action');
-            $this->model('actions/ActionsType');
-            $this->model('actions/ActionsSubtype');
 
-            $this->view('template/header');
+            $this->model('Settlement');
 
-            if (isset($_POST['editActionButton'])) {
-                
-                if ($this->Action->update($_POST['koszt'], $_POST['sprawa'], $_POST['symbol'], $_POST['nazwa'], $_POST['miejsce'], $_POST['typCzynnosci'], $_POST['podtypCzynnosci'], $_POST['dataRozpoczecia'], $_POST['dataZakonczenia'], $_POST['opis'], $id)) {
-                    Notifier::success('Czynność poprawnie edytowana.');
+            $this->Settlement->delete($id);
+
+            header('Location: /settlements');
+
+        }
+
+    }
+
+    function print () {
+
+        $this->model('accounts/Accounts');
+
+        if (!isset($_SESSION['login']) && $this->Accounts->checkPrivileges($_SESSION['login']) <= 2) {
+
+            header('Location: /login');
+
+        } else {
+
+            $this->model('Settlement');
+            $settlements = $this->Settlement->readAll();
+
+            $pdf = new FPDF();
+            $pdf->AddPage('L');
+            $pdf->AddFont('arial_ce', '', 'arial_ce.php');
+            $pdf->SetFont('arial_ce');
+
+            $pdf->Cell(90, 10);
+            $pdf->Cell(90, 10, iconv('UTF-8', 'ISO-8859-2//TRANSLIT//IGNORE', 'Wykaz rozliczeń'), 0, 0, 'C');
+            $pdf->Ln();
+
+            $pdf->SetFillColor(0, 0, 0);
+            $pdf->SetTextColor(255);
+
+            $pdf->Cell(50, 10, iconv('UTF-8', 'ISO-8859-2//TRANSLIT//IGNORE', 'SPRAWA'), 0, 0, 'C', 1);
+            $pdf->Cell(50, 10, iconv('UTF-8', 'ISO-8859-2//TRANSLIT//IGNORE', 'KWOTA'), 0, 0, 'C', 1);
+            $pdf->Cell(175, 10, iconv('UTF-8', 'ISO-8859-2//TRANSLIT//IGNORE', 'OPIS'), 0, 0, 'C', 1);
+
+            $pdf->Ln();
+
+            $pdf->SetTextColor(0);
+
+            $rowColor = true;
+            foreach ($settlements as $row) {
+
+                if ($rowColor) {
+                    $pdf->SetFillColor(240, 240, 240);
+                    $rowColor = false;
                 } else {
-                    Notifier::danger('Błąd edycji czynności!');
+                    $pdf->SetFillColor(220, 220, 220);
+                    $rowColor = true;
                 }
+
+                $pdf->Cell(50, 10, iconv('UTF-8', 'ISO-8859-2//TRANSLIT//IGNORE', $row['sprawa']), 0, 0, 'L', 1);
+                $pdf->Cell(50, 10, iconv('UTF-8', 'ISO-8859-2//TRANSLIT//IGNORE', $row['kwota'] . ' PLN'), 0, 0, 'L', 1);
+                $pdf->Cell(175, 10, iconv('UTF-8', 'ISO-8859-2//TRANSLIT//IGNORE', $row['opis']), 0, 0, 'L', 1);
+
+                $pdf->Ln();
 
             }
 
-            $data['actionData'] = $this->Action->read($id);
-            $data['caseData'] = $this->M_Case->readAll();
-            $data['typCzynnosciList'] = $this->ActionsType->readAll();
-            $data['podtypCzynnosciList'] = $this->ActionsSubtype->readAll();
-
-            $this->view('actions/action', $data);
-            $this->view('actions/editaction', $data);
-            
-            $this->view('template/footer');
+            $pdf->Output();
 
         }
 

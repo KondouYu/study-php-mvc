@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="/public/stylesheets/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/public/stylesheets/app.css">
     <link rel="stylesheet" href="/public/vendor/DataTables/datatables.min.css.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>

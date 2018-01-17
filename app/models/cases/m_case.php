@@ -52,9 +52,9 @@ class M_Case extends Model {
 
     }
 
-    function update ($symbol, $nazwa, $dziedzina, $nazwaInstytucji, $adresInstytucji, $uwagi, $id) {
+    function update ($symbol, $nazwa, $dziedzina, $nazwaInstytucji, $adresInstytucji, $uwagi, $klientID, $id) {
 
-        $stmt = $this->db->prepare("UPDATE sprawy SET symbol=?, nazwa=?, dziedzina=?, nazwaInstytucji=?, adresInstytucji=?, uwagi=? WHERE id = ?");
+        $stmt = $this->db->prepare("UPDATE sprawy SET symbol=?, nazwa=?, dziedzina=?, nazwaInstytucji=?, adresInstytucji=?, uwagi=?, klientID = ? WHERE id = ?");
 
         $stmt->bindParam(1, $symbol);
         $stmt->bindParam(2, $nazwa);
@@ -62,7 +62,8 @@ class M_Case extends Model {
         $stmt->bindParam(4, $nazwaInstytucji);
         $stmt->bindParam(5, $adresInstytucji);
         $stmt->bindParam(6, $uwagi);
-        $stmt->bindParam(7, $id);
+        $stmt->bindParam(7, $klientID);
+        $stmt->bindParam(8, $id);
 
         return $stmt->execute();
 

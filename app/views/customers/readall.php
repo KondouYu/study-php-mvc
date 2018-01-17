@@ -12,6 +12,7 @@
                     <a href="/dashboard" class="btn btn-block btn-secondary btn-lg">Panel główny</a>
                 </div>
                 <div class="col-md-3 offset-md-6">
+                    <a href="/customers/print" class="btn btn-block btn-secondary btn-lg">Drukuj</a>
                     <a href="#" data-toggle="modal" data-target="#dodajKlienta" class="btn btn-block btn-secondary btn-lg">Dodaj klienta</a>
                 </div>
             </div>
@@ -26,6 +27,7 @@
                                 <th>PESEL</th>
                                 <th>EMAIL</th>
                                 <th>NR UMOWY</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -39,6 +41,7 @@
                                 <td><?= $row['pesel'] ?></td>
                                 <td><?= $row['email'] ?></td>
                                 <td><?= $row['nrUmowy'] ?></td>
+                                <td><a href="/customers/delete/<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Czy na pewno chcesz usunąć klienta <?= $row['imie'] . ' ' . $row['nazwisko'] ?>?');"><i class="fa fa-trash-o"></i></a></td>
                             </tr>
                         <?php
                         }

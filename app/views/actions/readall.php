@@ -12,6 +12,7 @@
                     <a href="/dashboard" class="btn btn-block btn-secondary btn-lg">Panel główny</a>
                 </div>
                 <div class="col-md-3 offset-md-6">
+                    <a href="/actions/print" class="btn btn-block btn-secondary btn-lg">Drukuj</a>
                     <a href="#" data-toggle="modal" data-target="#dodajCzynnosc" class="btn btn-block btn-secondary btn-lg">Dodaj czynność</a>
                 </div>
             </div>
@@ -28,6 +29,7 @@
                                 <th>DATA ROZPOCZĘCIA</th>
                                 <th>DATA ZAKOŃCZENIA</th>
                                 <th>SPRAWA</th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -43,6 +45,7 @@
                                 <td><?= date_format(date_create($row['dataRozpoczecia']), 'd.m.Y') ?></td>
                                 <td><?= date_format(date_create($row['dataZakonczenia']), 'd.m.Y') ?></td>
                                 <td><?= $row['sprawa'] ?></td>
+                                <td><a href="/actions/delete/<?= $row['id'] ?>" class="btn btn-danger" onclick="return confirm('Czy na pewno chcesz usunąć czynność <?= $row['nazwa'] ?>?');"><i class="fa fa-trash-o"></i></a></td>
                             </tr>
                         <?php
                         }

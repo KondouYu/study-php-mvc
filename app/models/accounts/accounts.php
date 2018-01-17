@@ -45,7 +45,7 @@ class Accounts extends Model {
 
     }
 
-    private function hashPassword ($password, $seed) {
+    function hashPassword ($password, $seed) {
 
         return hash('sha512', $password . $seed);
 
@@ -54,7 +54,7 @@ class Accounts extends Model {
     // CRUD
     function create ($login = '', $ziarno = '', $haslo = '', $typ = '', $aktywne = '') {
 
-        $stmt = $this->db->prepare("INSERT INTO klienci (login, ziarno, haslo, typ, aktywne) VALUES (?, ?, ?, ?, ?)");
+        $stmt = $this->db->prepare("INSERT INTO konta (login, ziarno, haslo, typ, aktywne) VALUES (?, ?, ?, ?, ?)");
 
         $stmt->bindParam(1, $login);
         $stmt->bindParam(2, $ziarno);
@@ -68,7 +68,7 @@ class Accounts extends Model {
 
     function read ($id) {
 
-        $stmt = $this->db->prepare("SELECT * FROM konta WHERE id = ?");
+        $stmt = $this->db->prepare("SELECT k.*, t.nazwa AS typNazwa FROM konta k LEFT JOIN kontaTyp t ON k.typ = t.id WHERE id = ?");
         
         $stmt->bindParam(1, $id);
         
@@ -80,7 +80,7 @@ class Accounts extends Model {
 
     function readAll () {
 
-        $stmt = $this->db->prepare("SELECT * FROM konta");
+        $stmt = $this->db->prepare("SELECT k.*, t.nazwa AS typNazwa FROM konta k LEFT JOIN kontaTyp t ON k.typ = t.id");
         
         $stmt->execute();
 

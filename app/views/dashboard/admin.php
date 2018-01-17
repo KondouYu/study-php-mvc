@@ -22,14 +22,11 @@
                 </div>
             </div>
             <div class="row mt-5">
-                <div class="col-md-4">
-                    <a href="/accounts" class="btn btn-block btn-secondary btn-lg dashBtn">Konta</a>
+                <div class="col-md-4 offset-md-2">
+                    <a href="/account" class="btn btn-block btn-dark btn-lg dashBtn">Konta</a>
                 </div>
                 <div class="col-md-4">
-                    <a href="/settings" class="btn btn-block btn-secondary btn-lg dashBtn">Ustawienia</a>
-                </div>
-                <div class="col-md-4">
-                    <a href="/login/logout" class="btn btn-block btn-secondary btn-lg dashBtn">Wyloguj</a>
+                    <a href="/login/logout" class="btn btn-block btn-dark btn-lg dashBtn">Wyloguj</a>
                 </div>
             </div>
         </div>
